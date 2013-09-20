@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="default" extends="struts-default">
+	<result-types>
+		<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+ </result-types>
+		<action name="login" class="org.ASE.action.LoginAction">
+			<result name="validuser" type="redirect">HomeAction</result>
+			<result name="invaliduser">/error.jsp</result>
+			<result name="admin" type="tiles">admin</result>
+			<result name="input">/login.jsp</result>
+			<result name="banneduser">banneduser.jsp</result>
+		</action>
+		
+		<action name="AdminResetPasswordAction" class="org.ASE.action.AdminResetPasswordAction">
+			<result name="failure" >/error.jsp</result>
+			<result name="success" type="tiles">admin</result>
+		</action>
+		
+		<action name="AdminBanUserAction" class="org.ASE.action.AdminBanUserAction">
+			<result name="failure" >/error.jsp</result>
+			<result name="success" type="tiles">admin</result>
+		</action>
+		
+		
+		<action name="createUser" class="org.ASE.action.Signup">
+			<result name="success" type="redirect">HomeAction</result>
+			<result name="input"  type="redirect">login</result>
+			<result name="failure">/login.jsp</result>
+		</action>
+		
+		 <action name="LogoutAction" class="org.ASE.action.LogoutAction">
+		       <result name="failure"> /login.jsp</result>
+		        <result name="success">/login.jsp</result>
+		</action>
+		
+		
+		
+		 <action  name="HomeAction" class = "org.ASE.action.HomeAction"> 
+		      <result name="failure"> /error.jsp</result> 
+		      <result name="input"  type="redirect">login</result>
+		      <result name="success" type="tiles" >successLogin</result>
+		       </action>
+		
+		<action name="EntertainmentAction" class="org.ASE.action.EntertainmentAction">
+		       <result name="failure"> /login.jsp</result>
+		        <result name="success" type="tiles">entertainment</result>
+		</action>
+	   <action name="UserEntertainmentEventAction" class="org.ASE.action.UserEntertainmentEventAction">
+	   <result name="failure"> /login.jsp</result>
+		        <result name="success" type="tiles">entertainment</result>
+		</action>
+		
+		<action name="EntertainmentLikeAction" class="org.ASE.action.EntertainmentLikeAction">
+	   <result name="failure"> /login.jsp</result>
+		        <result name="success"  type="redirect">EntertainmentAction</result>
+		</action>
+		
+		<action name="RestaurantAction" class="org.ASE.action.RestaurantAction">
+		       <result name="failure"> /login.jsp</result>
+		        <result name="success" type="tiles">restaurant</result>
+		</action>
+		
+		<action name="UserRestaurantEventAction" class="org.ASE.action.UserRestaurantEventAction">
+	   <result name="failure"> /login.jsp</result>
+		        <result name="success" type="tiles">restaurant</result>
+		</action>
+		
+		<action name="RestaurantLikeAction" class="org.ASE.action.RestaurantLikeAction">
+	   <result name="failure"> /login.jsp</result>
+		        <result name="success"  type="redirect">RestaurantAction</result>
+		</action>
+		
+		 <action name="ShoppingAction" class="org.ASE.action.ShoppingAction">
+		       <result name="failure"> /login.jsp</result>
+		        <result name="success" type="tiles">shopping</result>
+		</action>
+		<action name="UserShoppingEventAction" class="org.ASE.action.UserShoppingEventAction">
+		       <result name="failure"> /login.jsp</result>
+		        <result name="success" type="tiles">shopping</result>
+		</action> 
+		
+		<action name="ShoppingLikeAction" class="org.ASE.action.ShoppingLikeAction">
+	   <result name="failure"> /login.jsp</result>
+		        <result name="success"  type="redirect">ShoppingAction</result>
+		</action>
+		
+		     <action name="createTodoListAction" class="org.ASE.action.createTodoListAction">
+		       <result name="failure"> /login.jsp</result>
+		       <result name="input">createTodoListAction</result>
+		        <result name="success" type="tiles">todolist</result>
+		</action> 
+		 <action name="TodoListAction" class="org.ASE.action.TodoListAction">
+		       <result name="failure"> /login.jsp</result>
+		       <result name="input" type="redirect">HomeAction</result>
+		        <result name="success" type="tiles">entertainment</result>
+		</action> 
+		<action name="viewTodoListAction" class="org.ASE.action.viewTodoListAction">
+		       <result name="failure"> /login.jsp</result>
+		        <result name="success" type="tiles">viewtodolist</result>
+		</action> 
+		
+		<action name="viewFriendAction" class="org.ASE.action.viewFriendAction">
+		       <result name="failure"> /login.jsp</result>
+		        <result name="success" type="tiles">friends</result>
+		        <result name="nofriends">/nofriends.jsp</result>
+		</action>
+		
+		
+		 
+	</package>
+</struts>
